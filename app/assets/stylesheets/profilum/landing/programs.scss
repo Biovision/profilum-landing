@@ -1,0 +1,170 @@
+#program-previews {
+  ul {
+    margin: 3.2rem auto 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    li {
+      background: #fff;
+      box-shadow: .4rem .2rem .8rem .4rem rgba(127, 127, 127, .125);
+      display: flex;
+      flex-basis: 36.5rem;
+      flex-direction: column;
+      list-style: none;
+      margin: 0 1.2rem 2.6rem;
+      min-height: 52.5rem;
+      padding: 0;
+
+      figure {
+        margin: 0;
+        padding: 0;
+
+        > div {
+          background: linear-gradient(to top, rgb(196, 196, 196), rgb(255, 255, 255));
+          height: 16.5rem;
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+
+          img {
+            object-fit: cover;
+            width: 100%;
+          }
+
+          .prices {
+            background: $main-color-d;
+            color: #fff;
+            display: block;
+            font-size: 1.8rem;
+            line-height: 3.2rem;
+            padding: 0 .8rem;
+            position: absolute;
+            right: 3rem;
+            top: 0;
+
+            span {
+              font-weight: 700;
+            }
+
+            del {
+              color: rgb(240, 240, 240);
+              float: right;
+              font-size: 1.4rem;
+              margin-left: 1rem;
+              text-decoration: line-through;
+              text-decoration-color: $main-color-a;
+            }
+
+            div {
+              clear: both;
+              font-size: 1.6rem;
+              line-height: 3rem;
+            }
+          }
+        }
+
+        figcaption {
+          font-size: 1.8rem;
+          font-weight: bold;
+          padding: 2rem 2rem 0;
+
+          a:link,
+          a:visited {
+            color: $main-color-c;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .lead {
+        margin: 0 2rem;
+
+        p {
+          color: $text-color-heading;
+          font-size: 1.5rem;
+          line-height: 2rem;
+          margin: 0;
+        }
+
+        a:link,
+        a:visited {
+          color: $text-color-heading;
+        }
+      }
+
+      .center {
+        margin: .4rem 2rem;
+
+        a:link,
+        a:visited {
+          color: $main-color-c;
+          font-size: 1.2rem;
+          font-weight: 600;
+          text-decoration: none;
+        }
+      }
+
+      .place {
+        color: $main-color-d;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: .4rem 2rem auto;
+      }
+
+      .ages {
+        border: {
+          bottom: .1rem solid rgb(234, 234, 234);
+          top: .1rem solid rgb(234, 234, 234);
+        }
+        color: $text-color-heading;
+        font-size: 1.6rem;
+        line-height: 5rem;
+        margin: 1rem 2rem;
+      }
+
+      .more {
+        margin: 0 2rem 2rem;
+
+        a:link,
+        a:visited {
+          background: none;
+          border: .3rem solid;
+          border-radius: 1.8rem;
+          color: $main-color-c;
+          display: inline-block;
+          font: 1.4rem/3rem $main-font-family;
+          padding: 0 2rem;
+          text-transform: uppercase;
+          transition: text-shadow .1s;
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+            text-shadow: 0 0 .8rem #fff;
+          }
+        }
+      }
+    }
+  }
+
+  > button {
+    display: block;
+    margin: 3.2rem auto;
+    background: $main-color-c;
+    border: none;
+    border-radius: 3rem;
+    color: #fff;
+    font: 2.4rem/6rem $main-font-family;
+    padding: 0 5rem;
+    text-transform: uppercase;
+    transition: text-shadow .1s;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-shadow: 0 0 .8rem #fff;
+    }
+  }
+}

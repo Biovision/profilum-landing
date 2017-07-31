@@ -190,26 +190,26 @@ body {
             }
 
             .fb {
-              background-image: image_url('icons/fb.png');
+              background-image: image_url('profilum/landing/icons/fb.png');
 
               &:hover {
-                background-image: image_url('icons/fb-hover.png');
+                background-image: image_url('profilum/landing/icons/fb-hover.png');
               }
             }
 
             .vk {
-              background-image: image_url('icons/vk.png');
+              background-image: image_url('profilum/landing/icons/vk.png');
 
               &:hover {
-                background-image: image_url('icons/vk-hover.png');
+                background-image: image_url('profilum/landing/icons/vk-hover.png');
               }
             }
 
             .ok {
-              background-image: image_url('icons/ok.png');
+              background-image: image_url('profilum/landing/icons/ok.png');
 
               &:hover {
-                background-image: image_url('icons/ok-hover.png');
+                background-image: image_url('profilum/landing/icons/ok-hover.png');
               }
             }
           }
@@ -357,7 +357,7 @@ article.my-index, .entity-page, .user, .profile {
           }
 
           .description {
-            color: $secondary-text-color;
+            color: $text-color-secondary;
             font-size: $font-size-decreased;
           }
         }

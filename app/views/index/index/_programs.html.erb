@@ -1,0 +1,47 @@
+<% if collection.any? %>
+    <section class="programs" id="program-previews">
+      <ul data-page="<%= collection.current_page %>">
+        <% collection.each do |entity| %>
+            <li>
+              <%= render partial: 'programs/preview', locals: { entity: entity } %>
+            </li>
+        <% end %>
+      </ul>
+
+      <% if collection.total_pages > 1 %>
+          <%= button_tag 'Показать больше', type: :button, data: { url: programs_path(page: collection.next_page) } %>
+      <% end %>
+    </section>
+
+    <script>
+        'use strict';
+        $(function () {
+            let $section = $('#program-previews');
+            let $list = $section.find('> ul');
+            let $button = $section.find('> button');
+
+            $button.on('click', function () {
+                $button.hide();
+
+                $.get($button.data('url'), function (response) {
+                    if (response.hasOwnProperty('data')) {
+                        $(response['data']).each(function(index, data) {
+                            if (data.hasOwnProperty('html_preview')) {
+                                $list.append('<li>' + data['html_preview'] + '</li>');
+                            }
+                        })
+                    }
+                    if (response.hasOwnProperty('links')) {
+                        let links = response['links'];
+
+                        if (links.hasOwnProperty('next')) {
+                            $button.data('url', links['next']);
+                            $button.attr('data-url', links['next']);
+                            $button.show();
+                        }
+                    }
+                }).fail(handle_ajax_failure);
+            });
+        });
+    </script>
+<% end %>
