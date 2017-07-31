@@ -42,12 +42,6 @@
         <div class="guideline"><%= t('.guidelines.lead') %></div>
       </dd>
 
-      <dt><%= f.label :ages %></dt>
-      <dd>
-        <%= f.text_field :ages, size: nil, maxlength: Program::AGES_LIMIT, required: true %>
-        <div class="guideline"><%= t('.guidelines.ages') %></div>
-      </dd>
-
       <dt><%= f.label :price %></dt>
       <dd>
         <%= f.number_field :price, in: Program::PRICE_RANGE, maxlength: 8 %>
