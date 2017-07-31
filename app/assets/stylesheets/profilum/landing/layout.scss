@@ -127,6 +127,8 @@ body {
     }
 
     > div {
+      align-items: flex-start;
+      color: #fff;
       margin: 0 auto;
       max-width: $content-width;
     }
@@ -243,6 +245,7 @@ body {
     }
 
     .copyright {
+      display: block;
       padding: 1rem .4rem .4rem;
       text-align: center;
     }

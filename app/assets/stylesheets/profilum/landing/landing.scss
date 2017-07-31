@@ -1,4 +1,78 @@
 .landing {
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+
+  .about {
+    //background: #fff image_url('bg-hands.png') no-repeat center top;
+    padding: 32.6rem 0 0 0;
+    color: $text-color-heading;
+
+    .wrapper {
+      box-sizing: border-box;
+      margin: 0 auto;
+      max-width: 108rem;
+      padding: 2.8rem 3rem 3.5rem;
+
+      h2 {
+        font: normal 6rem/6rem $font-family-heading;
+        margin: 0 0 3rem 0;
+        text-align: center;
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 0 auto;
+        max-width: 88rem;
+
+        li {
+          flex: 1 0 19rem;
+          max-width: 19rem;
+
+          .image {
+            img {
+              max-height: 8rem;
+            }
+          }
+
+          .text {
+            font-size: 1.8rem;
+            margin: 2.4rem 0 0 0;
+          }
+        }
+      }
+
+      .button {
+        margin: 4rem 0 0 0;
+        text-align: center;
+
+        label {
+          background: none;
+          border: .3rem solid;
+          border-radius: 3.4rem;
+          color: #fff;
+          display: inline-block;
+          font: 2.4rem/6.2rem $main-font-family;
+          padding: 0 3.6rem;
+          text-transform: uppercase;
+          transition: text-shadow .1s;
+
+          &:hover,
+          &:focus {
+            text-shadow: 0 0 .8rem #fff;
+          }
+        }
+      }
+    }
+  }
+
   .partners {
     margin: 8rem 0 0 0;
 

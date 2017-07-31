@@ -1,4 +1,4 @@
-Profilum::Landing::Engine.routes.draw do
+Rails.application.routes.draw do
 
   resources :centers, :programs, except: [:index, :show]
   get 'programs' => 'programs#index', defaults: { format: :json }
