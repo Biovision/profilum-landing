@@ -1,0 +1,17 @@
+<% content_for :meta_title, t('.title') %>
+<% content_for :breadcrumbs do %>
+    <%= link_to t('admin.centers.nav_item.text'), admin_centers_path %>
+    <%= admin_center_link(@entity) %>
+    <span><%= t(:edit) %></span>
+<% end %>
+
+<article class="entity-page">
+  <h1><%= t('.heading') %></h1>
+
+  <ul class="actions">
+    <li><%= return_icon(admin_center_path(@entity.id)) %></li>
+    <li class="danger"><%= destroy_icon @entity %></li>
+  </ul>
+
+  <%= render partial: 'form', locals: { entity: @entity } %>
+</article>

@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "Merlo";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/MerloLight.otf") format("opentype");
+}
+@font-face {
+  font-family: "Merlo";
+  font-style: italic;
+  font-weight: 300;
+  src: url("/fonts/MerloLightItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: "Merlo";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/MerloRegular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Merlo";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/MerloMedium.otf") format("opentype");
+}
+@font-face {
+  font-family: "Merlo";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/MerloBold.otf") format("opentype");
+}
+
+$main-font-family: "Merlo", sans-serif !default;
+$font-family-heading: "Merlo", sans-serif !default;
+
+// Основные цвета логотипа.
+$main-color-a: rgb(237, 8, 119) !default;  // #ed0677
+$main-color-b: rgb(0, 114, 188) !default;  // #0072bc
+$main-color-c: rgb(0, 181, 208) !default;  // #00b5d0
+$main-color-d: rgb(198, 205, 35) !default; // #c6cd23
+$main-color-e: rgb(0, 0, 0) !default;      // #000000
+
+// Дополнительные цвета должны использоваться в редких случаях.
+// В основном в навигации или для структурирования внутренней архитектуры.
+$secondary-color-a: rgb(253, 180, 20) !default; // #fdb414
+$secondary-color-b: rgb(242, 235, 11) !default; // #f2eb0b
+
+$text-color-primary: rgb(28, 28, 28) !default;
+$text-color-secondary: rgb(127, 127, 127) !default;
+
+$text-color-heading: rgb(58, 58, 58) !default;
+
+$font-size-normal: 1.4rem !default;
+$font-size-decreased: 1.2rem !default;
+
+$content-width: 115rem !default;
+
+$border-a: .1rem solid rgb(192, 192, 192) !default;
+
+$border-primary: .1rem solid rgb(192, 192, 192) !default;
+
+$link-color: rgb(20, 127, 255) !default;
+$link-color-visited: rgb(20, 77, 250) !default;
+$link-color-hover: rgb(255, 77, 20) !default;

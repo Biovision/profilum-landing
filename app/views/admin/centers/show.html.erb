@@ -1,0 +1,32 @@
+<% content_for :meta_title, t('.title', name: @entity.name) %>
+<% content_for :breadcrumbs do %>
+    <%= link_to(t('admin.centers.nav_item.text'), admin_centers_path) %>
+    <span><%= @entity.name %></span>
+<% end %>
+
+<article class="entity-page">
+  <h1><%= @entity.name %></h1>
+
+  <ul class="actions">
+    <li><%= back_icon(admin_centers_path) %></li>
+    <li><%= edit_icon(edit_center_path(@entity.id)) %></li>
+  </ul>
+
+  <dl>
+    <dt><%= t('activerecord.attributes.center.url') %></dt>
+    <dd>
+      <%= link_to(@entity.url, @entity.url, target: '_blank') %>
+    </dd>
+
+    <dt><%= t('activerecord.attributes.center.place') %></dt>
+    <dd>
+      <%= @entity.place %>
+    </dd>
+  </dl>
+
+  <section>
+    <h2><%= t('admin.programs.nav_item.text') %></h2>
+
+    <%= render partial: 'shared/admin/list', locals: { collection: @entity.programs.ordered_by_name } %>
+  </section>
+</article>

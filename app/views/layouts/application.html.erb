@@ -13,10 +13,14 @@
 <body>
 <%= render 'layouts/application/header' %>
 
-<main id="main">
-  <%= render 'shared/flash_messages' %>
+<main id="main" role="main">
+  <div class="flash-messages">
+    <%= render 'shared/flash_messages' %>
+  </div>
 
   <%= yield %>
+
+  <%= render 'layouts/application/authentication' %>
 </main>
 
 <%= render 'layouts/application/footer' %>

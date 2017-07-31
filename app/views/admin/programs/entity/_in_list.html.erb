@@ -1,0 +1,22 @@
+<div class="image">
+  <%= program_image_preview(entity) %>
+</div>
+<div class="data">
+  <div><%= admin_program_link(entity) %></div>
+  <div class="info">
+    <%= entity.center.name %>, <%= entity.ages %>, <%= entity.price %> ₽
+    <% if entity.old_price.to_i > 0 %>
+        <span class="old-price"><%= entity.old_price %> ₽</span>
+        (&minus;<%= entity.discount(true) %> ₽)
+    <% end %>
+  </div>
+  <div class="secondary info">
+    <%= entity.lead %>
+  </div>
+
+  <%= render partial: 'admin/programs/toggleable', locals: { entity: entity } %>
+
+  <ul class="actions">
+    <li><%= edit_icon edit_program_path(entity.id) %></li>
+  </ul>
+</div>

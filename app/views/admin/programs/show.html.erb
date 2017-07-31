@@ -1,0 +1,64 @@
+<% content_for :meta_title, t('.title', name: @entity.name) %>
+<% content_for :breadcrumbs do %>
+    <%= link_to(t('admin.programs.nav_item.text'), admin_programs_path) %>
+    <span><%= @entity.name %></span>
+<% end %>
+
+<article class="entity-page">
+  <h1><%= @entity.name %></h1>
+
+  <ul class="actions">
+    <li><%= back_icon(admin_programs_path) %></li>
+    <li><%= edit_icon(edit_program_path(@entity.id)) %></li>
+  </ul>
+
+  <% unless @entity.image.blank? %>
+      <figure>
+        <%= program_image_medium(@entity) %>
+        <figcaption>
+          <%= t('activerecord.attributes.program.image') %>
+        </figcaption>
+      </figure>
+  <% end %>
+
+  <dl>
+    <dt><%= t('activerecord.attributes.program.center') %></dt>
+    <dd>
+      <%= admin_center_link(@entity.center) %>
+    </dd>
+
+    <dt><%= t('activerecord.attributes.program.url') %></dt>
+    <dd>
+      <%= link_to(@entity.url, @entity.url, target: '_blank') %>
+    </dd>
+
+    <dt><%= t('activerecord.attributes.program.lead') %></dt>
+    <dd>
+      <%= @entity.lead %>
+    </dd>
+
+    <dt><%= t('activerecord.attributes.program.ages') %></dt>
+    <dd>
+      <%= @entity.ages %>
+    </dd>
+
+    <dt><%= t('activerecord.attributes.program.price') %></dt>
+    <dd>
+      <%= @entity.price %>
+    </dd>
+
+    <% if @entity.old_price.to_i > 0 %>
+        <dt><%= t('activerecord.attributes.program.old_price') %></dt>
+        <dd>
+          <%= @entity.old_price %>
+        </dd>
+
+        <dt><%= t('activerecord.attributes.program.discount') %></dt>
+        <dd>
+          <%= @entity.discount(true) %>
+        </dd>
+    <% end %>
+  </dl>
+
+  <%= render partial: 'admin/programs/toggleable', locals: { entity: @entity } %>
+</article>

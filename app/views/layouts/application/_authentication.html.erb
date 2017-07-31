@@ -1,0 +1,58 @@
+<input type="checkbox" id="login-form-toggle"/>
+<div id="profilum-login" data-token="">
+  <div><label for="login-form-toggle">&#10006;</label></div>
+  <%= form_tag profilum_login_path, method: :post do %>
+      <div>
+        <dl>
+          <dt><%= label_tag :email, 'Email' %></dt>
+          <dd><%= email_field_tag :email, '', required: true %></dd>
+        </dl>
+
+        <div class="button">
+          <%= button_tag 'Вход/регистрация', type: :submit %>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<script>
+    'use strict';
+
+    $(function () {
+        let $profilum_form = $('#profilum-login').find('form');
+
+        $profilum_form.on('submit', function (e) {
+            e.preventDefault();
+
+            let data = $profilum_form.serialize();
+            let $links = $('a.test-link');
+
+            $profilum_form.html('<div>Подождите…</div>');
+
+            $.post($profilum_form.attr('action'), data, function (response) {
+                $profilum_form.data('token', response);
+                $profilum_form.attr('data-token', response);
+
+                $profilum_form.html('<div>Вход выполнен</div>');
+
+                $links.attr('href', 'https://dev.profilum.ru/imoscow/player/index?n=1&token=' + response);
+                $links.on('click', function (event) {
+                    event.preventDefault();
+
+                    let $container = $('#test-frame-modal').find('.container');
+                    let src = $(this).attr('href');
+
+                    if ($container.children().length < 1) {
+                        $container.html('<iframe src="' + src + '" width="100%" height="100%"></iframe>');
+                    } else {
+                        console.log('nope');
+                    }
+
+                    $('#test-frame-toggle').click();
+                });
+
+                console.log(response);
+            }).fail(handle_ajax_failure);
+        });
+    });
+</script>

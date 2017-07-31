@@ -1,0 +1,30 @@
+<header>
+  <div>
+    <div class="logo"><%= link_to(image_tag('logo.svg', alt: 'Профилум'), 'https://profilum.ru') %></div>
+
+    <nav>
+      <%= render 'layouts/application/search_profilum' %>
+
+      <ul>
+        <li>
+          <a href="https://profilum.ru/dopolnitelnoe-obrazovanie-detej-programmy">программы</a>
+        </li>
+        <li>
+          <a href="https://profilum.ru/catalog">профессии</a>
+        </li>
+        <li>
+          <a href="https://profilum.ru/home/aboutproject">О проекте</a>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <a href="https://profilum.ru/test-na-professiyu" class="button test-link" target="_blank">Пройти тест</a>
+        </li>
+        <li>
+          <label for="login-form-toggle">Войти</label>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

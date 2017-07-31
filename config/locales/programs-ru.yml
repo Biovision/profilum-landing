@@ -1,0 +1,89 @@
+ru:
+  program_count:
+    zero: "програм нет"
+    one: "%{count} программа"
+    few: "%{count} программы"
+    many: "%{count} программ"
+    other: "%{count} программ"
+  activerecord:
+    models:
+      center: "Центр"
+      program: "Программа"
+    errors:
+      models:
+        programs:
+          attributes:
+            old_price:
+              should_be_greater_than_price: "должна быть больше «обычной» цены"
+    attributes:
+      center:
+        name: "Название"
+        url: "URL"
+        place: "Место"
+      program:
+        center: "Центр образования"
+        center_id: "Центр образования"
+        price: "Цена"
+        old_price: "Старая цена"
+        image: "Картинка"
+        name: "Название"
+        url: "URL"
+        lead: "Краткое описание"
+        ages: "Возраст"
+        discount: "Скидка"
+        visible: "Показывать"
+        use_discount: "Показывать скидку"
+  admin:
+    centers:
+      nav_item:
+        text: "Центры"
+        description: "Управление центрами образования"
+      index:
+        title: "Центры, страница %{page}"
+        heading: "Центры"
+      show:
+        title: "Центр «%{name}»"
+    programs:
+      nav_item:
+        text: "Программы"
+        description: "Управление программами обучения"
+      index:
+        title: "Программы, страница %{page}"
+        heading: "Программы"
+      show:
+        title: "Программа «%{name}»"
+  centers:
+    new:
+      title: "Новый центр образования"
+      heading: "Новый центр образования"
+    edit:
+      title: "Редактирование центра"
+      heading: "Редактирование центра"
+    update:
+      success: "Центр успешно изменён"
+    destroy:
+      success: "Центр успешно удалён"
+    form:
+      guidelines:
+        name: "Выводится в карточках. Максимум 255 символов."
+        url: "Ссылка на основую страницу центра. Максимум 255 символов."
+        place: "Ближайшие станции метро. Максимум 255 символов."
+  programs:
+    new:
+      title: "Новая программа обучения"
+      heading: "Новая программа обучения"
+    edit:
+      title: "Редактирование программы"
+      heading: "Редактирование программы"
+    update:
+      success: "Программа успешно изменена"
+    destroy:
+      success: "Программа успешно удалена"
+    form:
+      guidelines:
+        name: "Выводится в карточках. Максимум 255 символов."
+        url: "Ссылка на основую страницу программы. Максимум 255 символов."
+        lead: "Выводится в карточках. Максимум 255 символов."
+        ages: "Перечисление возрастов целевой аудитории."
+        image: "Картинка в формате JPG или PNG размером в пределах 1280×1280 пикселей."
+        old_price: "Если задано, отображается в карточке в перечёркнутом виде"
