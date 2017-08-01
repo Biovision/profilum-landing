@@ -8,7 +8,12 @@
         <% end %>
       </ul>
 
-      <% if collection.total_pages > 1 %>
+      <div class="loader">
+        <div class="spinner">
+          <%= image_tag('profilum/landing/icons/loader.svg') %>
+        </div>
+      </div>
+      <% if collection.total_pages < -1 %>
           <%= button_tag 'Показать больше', type: :button, data: { url: programs_path(page: collection.next_page) } %>
       <% end %>
     </section>

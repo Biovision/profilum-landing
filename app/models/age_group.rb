@@ -14,13 +14,14 @@ class AgeGroup < ApplicationRecord
   validates_length_of :name, maximum: NAME_LIMIT
 
   scope :ordered_by_priority, -> { order('priority asc, name asc') }
+  scope :with_programs, -> { where('programs_count > 0') }
 
   def self.page_for_administration
     ordered_by_priority
   end
 
   def self.list_for_visitors
-    ordered_by_priority
+    with_programs.ordered_by_priority
   end
 
   def self.entity_parameters
