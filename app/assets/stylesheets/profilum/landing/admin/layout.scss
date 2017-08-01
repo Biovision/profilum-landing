@@ -8,3 +8,30 @@
   font-size: smaller;
   text-decoration: line-through;
 }
+
+dt {
+  font-weight: 700;
+}
+
+.program-age-group {
+  display: inline-block;
+  margin-bottom: .4rem !important;
+  position: relative;
+
+  label {
+    border-radius: .2rem;
+    cursor: pointer;
+    padding: 0 .8rem;
+  }
+
+  input[type=checkbox] {
+    height: .01rem;
+    opacity: .005;
+    width: .01rem;
+
+    &:checked + label {
+      background: rgba(31, 127, 31, .25);
+      box-shadow: 0 0 .4rem 0 rgba(31, 127, 31, .75);
+    }
+  }
+}

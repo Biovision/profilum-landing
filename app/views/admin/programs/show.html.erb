@@ -4,7 +4,7 @@
     <span><%= @entity.name %></span>
 <% end %>
 
-<article class="entity-page">
+<article>
   <h1><%= @entity.name %></h1>
 
   <ul class="actions">
@@ -38,9 +38,13 @@
     </dd>
 
     <dt><%= t('activerecord.attributes.program.ages') %></dt>
-    <dd>
-      <%= @entity.ages %>
-    </dd>
+    <% AgeGroup.page_for_administration.each do |age_group| %>
+        <dd data-url="<%= age_group_admin_program_path(id: @entity.id, age_group_id: age_group.id) %>" class="program-age-group">
+          <% element_id = "age_group_#{age_group.id}" %>
+          <%= check_box_tag "program_age_group[#{age_group.id}]", age_group.id, age_group.has_program?(@entity), id: element_id %>
+          <%= label_tag element_id, age_group.name %>
+        </dd>
+    <% end %>
 
     <dt><%= t('activerecord.attributes.program.price') %></dt>
     <dd>
@@ -62,3 +66,18 @@
 
   <%= render partial: 'admin/programs/toggleable', locals: { entity: @entity } %>
 </article>
+
+<script>
+    'use strict';
+
+    $(function() {
+        $('.program-age-group').find('input[type=checkbox]').on('click', function() {
+            let url = $(this).parent().data('url');
+            let method = $(this).is(':checked') ? 'PUT' : 'DELETE';
+
+            $.ajax(url, {
+                method: method
+            }).fail(handle_ajax_failure);
+        });
+    });
+</script>
