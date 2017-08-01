@@ -1,6 +1,6 @@
 ru:
   program_count:
-    zero: "програм нет"
+    zero: "программ нет"
     one: "%{count} программа"
     few: "%{count} программы"
     many: "%{count} программ"

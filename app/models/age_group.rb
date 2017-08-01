@@ -27,8 +27,9 @@ class AgeGroup < ApplicationRecord
     %i(name)
   end
 
+  # @param [Program] program
   def has_program?(program)
-    ProgramAgeGroup.exists?(program: program, age_group: self)
+    program_age_groups.where(program: program).exists?
   end
 
   private

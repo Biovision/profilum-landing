@@ -20,6 +20,8 @@
             <li><%= render 'admin/editable_pages/nav_item' %></li>
         <% end %>
         <% if current_user_has_privilege?(:program_manager) %>
+            <li><%= render 'admin/age_groups/nav_item' %></li>
+            <li><%= render 'admin/schools/nav_item' %></li>
             <li><%= render 'admin/centers/nav_item' %></li>
             <li><%= render 'admin/programs/nav_item' %></li>
         <% end %>

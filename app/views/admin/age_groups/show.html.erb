@@ -1,0 +1,27 @@
+<% content_for :meta_title, t('.title', name: @entity.name) %>
+<% content_for :breadcrumbs do %>
+    <%= link_to(t('admin.age_groups.nav_item.text'), admin_age_groups_path) %>
+    <span><%= @entity.name %></span>
+<% end %>
+
+<article class="entity-page">
+  <h1><%= @entity.name %></h1>
+
+  <ul class="actions">
+    <li><%= back_icon(admin_age_groups_path) %></li>
+    <li><%= edit_icon(edit_age_group_path(@entity.id)) %></li>
+  </ul>
+
+  <dl>
+    <dt><%= t('activerecord.attributes.age_group.name') %></dt>
+    <dd>
+      <%= @entity.name %>
+    </dd>
+  </dl>
+
+  <section>
+    <h2><%= t(:program_count, count: @entity.programs_count) %></h2>
+
+    <%= render partial: 'shared/admin/list', locals: { collection: @entity.programs.ordered_by_name } %>
+  </section>
+</article>

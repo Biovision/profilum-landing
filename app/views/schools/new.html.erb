@@ -1,0 +1,15 @@
+<% content_for :meta_title, t('.title') %>
+<% content_for :breadcrumbs do %>
+    <%= link_to t('admin.schools.nav_item.text'), admin_schools_path %>
+    <span><%= t(:create) %></span>
+<% end %>
+
+<article>
+  <h1><%= t('.heading') %></h1>
+
+  <ul class="actions">
+    <li><%= back_icon(admin_schools_path) %></li>
+  </ul>
+
+  <%= render partial: 'form', locals: { entity: @entity } %>
+</article>

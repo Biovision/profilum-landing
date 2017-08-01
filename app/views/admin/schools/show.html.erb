@@ -1,0 +1,34 @@
+<% content_for :meta_title, t('.title', name: @entity.name) %>
+<% content_for :breadcrumbs do %>
+    <%= link_to(t('admin.schools.nav_item.text'), admin_schools_path) %>
+    <span><%= @entity.name %></span>
+<% end %>
+
+<article class="entity-page">
+  <h1><%= @entity.name %></h1>
+
+  <ul class="actions">
+    <li><%= back_icon(admin_schools_path) %></li>
+    <li><%= edit_icon(edit_school_path(@entity.id)) %></li>
+  </ul>
+
+  <dl>
+    <dt><%= t('activerecord.attributes.school.name') %></dt>
+    <dd>
+      <%= @entity.name %>
+    </dd>
+
+    <dt><%= t('activerecord.attributes.school.slug') %></dt>
+    <dd>
+      <%= @entity.slug %>
+    </dd>
+  </dl>
+
+  <%= render partial: 'admin/schools/toggleable', locals: { entity: @entity } %>
+
+  <section>
+    <h2><%= t(:program_count, count: @entity.programs_count) %></h2>
+
+    <%= render partial: 'shared/admin/list', locals: { collection: @entity.programs.ordered_by_name } %>
+  </section>
+</article>

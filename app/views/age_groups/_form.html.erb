@@ -1,0 +1,20 @@
+<%= render partial: 'shared/list_of_errors', locals: { entity: entity } %>
+
+<%= form_for entity do |f| %>
+    <dl>
+      <dt><%= f.label :name %></dt>
+      <dd>
+        <%= f.text_field :name, maxlength: AgeGroup::NAME_LIMIT, required: true %>
+        <div class="guideline"><%= t('.guidelines.name') %></div>
+      </dd>
+
+      <dt><%= f.label :priority %></dt>
+      <dd>
+        <%= f.number_field :priority, in: AgeGroup::PRIORITY_RANGE, required: true %>
+      </dd>
+    </dl>
+
+    <div class="buttons">
+      <%= f.button t(:save), type: :submit %>
+    </div>
+<% end %>

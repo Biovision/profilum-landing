@@ -1,0 +1,14 @@
+<div class="data">
+  <div><%= admin_school_link(entity) %></div>
+  <div class="info">
+    <%= entity.slug %>
+  </div>
+  <div class="secondary info">
+    <%= t(:program_count, count: entity.programs_count) %>
+  </div>
+  <%= render partial: 'admin/schools/toggleable', locals: { entity: entity } %>
+
+  <ul class="actions">
+    <li><%= edit_icon edit_school_path(entity.id) %></li>
+  </ul>
+</div>

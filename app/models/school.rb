@@ -11,6 +11,9 @@ class School < ApplicationRecord
 
   toggleable :visible
 
+  has_many :program_schools, dependent: :destroy
+  has_many :programs, through: :program_schools
+
   validates_format_of :slug, with: SLUG_PATTERN
   validates_length_of :name, maximum: NAME_LIMIT
 
@@ -30,5 +33,10 @@ class School < ApplicationRecord
 
   def self.entity_parameters
     %i(name slug visible)
+  end
+
+  # @param [Program] program
+  def has_program?(program)
+    program_schools.where(program: program).exists?
   end
 end

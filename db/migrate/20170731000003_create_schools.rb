@@ -3,7 +3,7 @@ class CreateSchools < ActiveRecord::Migration[5.1]
     unless School.table_exists?
       create_table :schools do |t|
         t.timestamps
-        t.boolean :visible
+        t.boolean :visible, default: true, null: false
         t.integer :programs_count, default: 0, null: false
         t.string :name, null: false
         t.string :slug, null: false
