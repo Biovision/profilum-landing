@@ -62,6 +62,19 @@
           <%= @entity.discount(true) %>
         </dd>
     <% end %>
+
+    <dt><%= t('activerecord.attributes.program_school.school') %></dt>
+    <dd class="program-school">
+      <ul>
+        <% School.ordered_by_name.each do |school| %>
+            <li data-url="<%= school_admin_program_path(id: @entity.id, school_id: school.id) %>">
+              <% element_id = "school_#{school.id}" %>
+              <%= check_box_tag "program_school[#{school.id}]", school.id, school.has_program?(@entity), id: element_id %>
+              <%= label_tag element_id, school.name %>
+            </li>
+        <% end %>
+      </ul>
+    </dd>
   </dl>
 
   <%= render partial: 'admin/programs/toggleable', locals: { entity: @entity } %>
@@ -71,7 +84,7 @@
     'use strict';
 
     $(function() {
-        $('.program-age-group').find('input[type=checkbox]').on('click', function() {
+        $('.program-age-group, .program-school').find('input[type=checkbox]').on('click', function() {
             let url = $(this).parent().data('url');
             let method = $(this).is(':checked') ? 'PUT' : 'DELETE';
 

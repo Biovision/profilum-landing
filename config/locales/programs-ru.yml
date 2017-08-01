@@ -5,6 +5,10 @@ ru:
     few: "%{count} программы"
     many: "%{count} программ"
     other: "%{count} программ"
+  school_inflection:
+    - "направлений"
+    - "направление"
+    - "направления"
   activerecord:
     models:
       age_group: "Возрастная группа"
@@ -47,7 +51,7 @@ ru:
         age_group_id: "Возрастная группа"
         program: "Программа"
         program_id: "Программа"
-      program_achool:
+      program_school:
         program: "Программа"
         program_id: "Программа"
         school: "Направление"

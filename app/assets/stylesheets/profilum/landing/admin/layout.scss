@@ -18,6 +18,22 @@ dt {
   margin-bottom: .4rem !important;
   position: relative;
 
+}
+
+.program-school {
+  ul {
+    column-count: 4;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.program-age-group,
+.program-school {
   label {
     border-radius: .2rem;
     cursor: pointer;
@@ -25,13 +41,35 @@ dt {
   }
 
   input[type=checkbox] {
-    height: .01rem;
-    opacity: .005;
-    width: .01rem;
+    display: none;
 
     &:checked + label {
       background: rgba(31, 127, 31, .25);
       box-shadow: 0 0 .4rem 0 rgba(31, 127, 31, .75);
+    }
+  }
+}
+
+@media screen and(max-width: 800px) {
+  .program-school {
+    ul {
+      column-count: 3;
+    }
+  }
+}
+
+@media screen and(max-width: 640px) {
+  .program-school {
+    ul {
+      column-count: 2;
+    }
+  }
+}
+
+@media screen and(max-width: 480px) {
+  .program-school {
+    ul {
+      column-count: 1;
     }
   }
 }
