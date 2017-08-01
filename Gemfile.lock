@@ -14,7 +14,7 @@ GIT
 PATH
   remote: .
   specs:
-    profilum-landing (0.1.170731)
+    profilum-landing (0.1.170801)
       biovision-base
       rails (~> 5.1)
 

@@ -43,6 +43,12 @@ class Program < ApplicationRecord
     %i(center_id image name lead url price old_price visible use_discount)
   end
 
+  def self.prices
+    min_price = visible.minimum(:price).to_i
+    max_price = visible.maximum(:price).to_i
+    (min_price..max_price)
+  end
+
   # @param [Boolean] force
   def discount(force = false)
     return 0 if old_price.to_i < 1

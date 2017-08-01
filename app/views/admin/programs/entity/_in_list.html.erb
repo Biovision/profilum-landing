@@ -4,10 +4,15 @@
 <div class="data">
   <div><%= admin_program_link(entity) %></div>
   <div class="info">
-    <%= entity.center.name %>, <%= entity.ages %>, <%= entity.price %> ₽
+    <%= entity.center.name %>, <%= entity.price %> ₽
     <% if entity.old_price.to_i > 0 %>
         <span class="old-price"><%= entity.old_price %> ₽</span>
         (&minus;<%= entity.discount(true) %> ₽)
+    <% end %>
+    <% if entity.program_age_groups.any? %>
+        <div>
+          <%= t('activerecord.attributes.program.ages') %>: <%= entity.ages %>
+        </div>
     <% end %>
   </div>
   <div class="secondary info">
