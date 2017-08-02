@@ -219,22 +219,12 @@
 
 @keyframes spinner-passive {
   from {
-    filter: drop-shadow(0 0 2rem rgba(237, 8, 119, .85));
-  }
-
-  25% {
-    filter: drop-shadow(0 0 1rem rgba(0, 114, 188, .85));
-  }
-
-  50% {
-    filter: drop-shadow(0 0 .2rem rgba(0, 181, 208, .85));
-  }
-
-  75% {
-    filter: drop-shadow(0 0 1rem rgba(198, 205, 35, .85));
+    filter: drop-shadow(0 0 .4rem $main-color-b);
+    transform: rotate(-18deg);
   }
 
   to {
-    filter: drop-shadow(0 0 2rem rgba(0, 0, 0, .85));
+    filter: drop-shadow(0 0 .4rem $main-color-d);
+    transform: rotate(18deg);
   }
 }
