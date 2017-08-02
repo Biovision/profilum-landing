@@ -173,6 +173,7 @@
     text-align: center;
 
     .spinner {
+      cursor: pointer;
       height: 3.2rem;
       margin: 0 auto;
       width: 3.2rem;
@@ -184,6 +185,10 @@
 
       &.active {
         animation: 1s linear infinite loader-wait;
+      }
+
+      &:not(.active) {
+        animation: 5s ease-in infinite alternate spinner-passive;
       }
     }
 
@@ -209,5 +214,27 @@
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-passive {
+  from {
+    filter: drop-shadow(0 0 2rem rgba(237, 8, 119, .85));
+  }
+
+  25% {
+    filter: drop-shadow(0 0 1rem rgba(0, 114, 188, .85));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 .2rem rgba(0, 181, 208, .85));
+  }
+
+  75% {
+    filter: drop-shadow(0 0 1rem rgba(198, 205, 35, .85));
+  }
+
+  to {
+    filter: drop-shadow(0 0 2rem rgba(0, 0, 0, .85));
   }
 }

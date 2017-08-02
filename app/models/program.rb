@@ -42,7 +42,7 @@ class Program < ApplicationRecord
   # @param [Integer] page
   # @param [Hash] filter
   def self.page_for_visitors(page = 1, filter = {})
-    filtered(filter).visible.ordered_by_price.page(page).per(6)
+    filtered(filter).visible.ordered_by_price.distinct.page(page).per(6)
   end
 
   def self.entity_parameters
