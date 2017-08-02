@@ -4,7 +4,8 @@ class ProgramsController < AdminController
 
   # get /programs
   def index
-    @collection = Program.page_for_visitors(current_page)
+    @filter = params[:filter] || Hash.new
+    @collection = Program.page_for_visitors(current_page, @filter)
   end
 
   # get /programs/new

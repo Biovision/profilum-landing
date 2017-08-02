@@ -28,6 +28,11 @@ class Program < ApplicationRecord
   scope :ordered_by_name, -> { order('name asc') }
   scope :ordered_by_price, -> { order('price asc, name asc') }
   scope :visible, -> { where(visible: true) }
+  scope :with_school_ids, ->(ids) { joins(:program_schools).where(program_schools: { school_id: ids }) unless ids.blank? }
+  scope :with_age_group_ids, ->(ids) { joins(:program_age_groups).where(program_age_groups: { age_group_id: ids }) unless ids.blank? }
+  scope :price_from, ->(value) { where('price >= ?', value.to_i) unless value.blank? }
+  scope :price_to, ->(value) { where('price <= ?', value.to_i) unless value.blank? }
+  scope :filtered, ->(f) { with_school_ids(f[:school]).with_age_group_ids(f[:age_group]).price_from(f[:price_from]).price_to(f[:price_to]) }
 
   # @param [Integer] page
   def self.page_for_administration(page)
@@ -35,8 +40,9 @@ class Program < ApplicationRecord
   end
 
   # @param [Integer] page
-  def self.page_for_visitors(page = 1)
-    visible.ordered_by_price.page(page).per(6)
+  # @param [Hash] filter
+  def self.page_for_visitors(page = 1, filter = {})
+    filtered(filter).visible.ordered_by_price.page(page).per(6)
   end
 
   def self.entity_parameters

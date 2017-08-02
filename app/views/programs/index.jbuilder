@@ -19,4 +19,9 @@ json.data @collection do |entity|
   end
   json.html_preview render(partial: 'programs/preview', formats: [:html], locals: { entity: entity })
 end
+unless @collection.next_page.blank?
+  json.meta do
+    json.next_page @collection.next_page
+  end
+end
 json.partial! 'shared/pagination', locals: { collection: @collection }

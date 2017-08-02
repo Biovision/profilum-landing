@@ -9,7 +9,7 @@
       </ul>
 
       <div class="loader">
-        <div class="spinner">
+        <div class="spinner <%= collection.next_page.blank? ? 'hidden' : '' %>">
           <%= image_tag('profilum/landing/icons/loader.svg') %>
         </div>
       </div>
