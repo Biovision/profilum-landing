@@ -61,6 +61,12 @@ class Program < ApplicationRecord
     (use_discount? || force) ? (old_price - price) : 0
   end
 
+  def discount_percent
+    return 0 if old_price.to_i < 1
+
+    ((1 - price.to_f/old_price.to_f) * 100).ceil.to_i
+  end
+
   def ages
     age_groups.ordered_by_priority.map(&:name).join(' ')
   end

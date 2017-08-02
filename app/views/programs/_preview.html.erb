@@ -2,19 +2,20 @@
   <div>
     <%= program_image_small(entity) %>
     <div class="prices">
-      <span>
-        <%= number_with_delimiter(entity.price, delimiter: ' ') %> р.
-      </span>
       <% if entity.discount > 0 %>
           <del title="<%= t('activerecord.attributes.program.old_price') %>">
             <%= number_with_delimiter(entity.old_price, delimiter: ' ') %> р.
           </del>
-          <div>
-            <%= t('activerecord.attributes.program.discount') %>
-            <%= number_with_delimiter(entity.discount, delimiter: ' ') %> р.
-          </div>
       <% end %>
+      <div>
+        <%= number_with_delimiter(entity.price, delimiter: ' ') %> р.
+      </div>
     </div>
+    <% if entity.discount > 0 %>
+        <div class="discount">
+          &minus;<%= entity.discount_percent %>%
+        </div>
+    <% end %>
   </div>
   <figcaption><%= link_to(entity.name, entity.url) %></figcaption>
 </figure>

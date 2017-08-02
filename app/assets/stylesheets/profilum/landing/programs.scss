@@ -37,31 +37,32 @@
             background: $main-color-d;
             color: #fff;
             display: block;
-            font-size: 1.8rem;
-            line-height: 3.2rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.5;
             padding: 0 .8rem;
             position: absolute;
             right: 3rem;
             top: 0;
 
-            span {
-              font-weight: 700;
-            }
-
             del {
-              color: rgb(240, 240, 240);
-              float: right;
-              font-size: 1.4rem;
-              margin-left: 1rem;
+              color: rgb(219, 236, 103);
               text-decoration: line-through;
-              text-decoration-color: $main-color-a;
             }
+          }
 
-            div {
-              clear: both;
-              font-size: 1.6rem;
-              line-height: 3rem;
-            }
+          .discount {
+            background: $main-color-a;
+            border-radius: 2.25rem;
+            bottom: 1.5rem;
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 4.5rem;
+            position: absolute;
+            right: 3rem;
+            text-align: center;
+            width: 4.5rem;
           }
         }
 
