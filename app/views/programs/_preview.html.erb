@@ -21,7 +21,7 @@
 </figure>
 <div class="lead">
   <p><%= entity.lead %></p>
-  <p><%= link_to('Подробнее', entity.url) %></p>
+  <p><%= link_to('Подробнее', entity.url, target: '_blank') %></p>
 </div>
 <div class="center"><%= link_to(entity.center.name, entity.center.url, target: '_blank') %></div>
 <div class="place"><%= entity.center.place %></div>
