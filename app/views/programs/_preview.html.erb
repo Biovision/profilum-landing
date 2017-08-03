@@ -17,13 +17,13 @@
         </div>
     <% end %>
   </div>
-  <figcaption><%= link_to(entity.name, entity.url) %></figcaption>
+  <figcaption><%= link_to(entity.name, entity.url, target: '_blank') %></figcaption>
 </figure>
 <div class="lead">
   <p><%= entity.lead %></p>
   <p><%= link_to('Подробнее', entity.url) %></p>
 </div>
-<div class="center"><%= link_to(entity.center.name, entity.center.url) %></div>
+<div class="center"><%= link_to(entity.center.name, entity.center.url, target: '_blank') %></div>
 <div class="place"><%= entity.center.place %></div>
 <div class="ages">Возраст: <%= entity.ages %></div>
-<div class="more"><%= link_to('Подробнее', entity.url) %></div>
+<div class="more"><%= link_to('Подробнее', entity.url, target: '_blank') %></div>
