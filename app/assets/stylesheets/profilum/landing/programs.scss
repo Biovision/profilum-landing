@@ -188,7 +188,7 @@
       }
 
       &:not(.active) {
-        animation: 5s ease-in infinite alternate spinner-passive;
+        animation: 3s ease-in infinite alternate spinner-passive;
       }
     }
 
@@ -220,11 +220,11 @@
 @keyframes spinner-passive {
   from {
     filter: drop-shadow(0 0 .4rem $main-color-b);
-    transform: rotate(-18deg);
+    transform: rotate(-30deg);
   }
 
   to {
     filter: drop-shadow(0 0 .4rem $main-color-d);
-    transform: rotate(18deg);
+    transform: rotate(30deg);
   }
 }
