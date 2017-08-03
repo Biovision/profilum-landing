@@ -8,6 +8,11 @@
         <% end %>
       </ul>
 
+      <div class="message hidden">
+        К сожалению ни одна программа не соответствуют вашему запросу.<br/>
+        Попробуйте поискать еще раз с другими настройками фильтров.
+      </div>
+
       <div class="loader">
         <div class="spinner <%= collection.next_page.blank? ? 'hidden' : '' %>">
           <%= image_tag('profilum/landing/icons/loader.svg') %>

@@ -150,6 +150,15 @@
     }
   }
 
+  .message {
+    color: $main-color-a;
+    font-weight: 700;
+    font-size: $font-size-increased;
+    margin: 2rem auto;
+    max-width: $content-width;
+    text-align: center;
+  }
+
   > button {
     display: block;
     margin: 3.2rem auto;
