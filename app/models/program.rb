@@ -64,7 +64,7 @@ class Program < ApplicationRecord
   def discount_percent
     return 0 if old_price.to_i < 1
 
-    ((1 - price.to_f/old_price.to_f) * 100).ceil.to_i
+    ((1 - price.to_f/old_price.to_f) * 100).round.to_i
   end
 
   def ages
