@@ -19,6 +19,12 @@ module ProgramsHelper
     link_to(entity.name, admin_school_path(entity.id))
   end
 
+  # @param [Program] entity
+  def program_link(entity, text = entity.name, options = {})
+    html_options = { target: '_blank' }.merge(options)
+    link_to(text, program_path(entity.id), html_options)
+  end
+
   def centers_for_select
     Center.ordered_by_name.map { |c| [c.name, c.id] }
   end

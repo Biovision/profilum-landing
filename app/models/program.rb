@@ -12,6 +12,7 @@ class Program < ApplicationRecord
   mount_uploader :image, ProgramImageUploader
 
   belongs_to :center, counter_cache: true
+  has_many :program_clicks, dependent: :destroy
   has_many :program_age_groups, dependent: :destroy
   has_many :program_schools, dependent: :destroy
   has_many :age_groups, through: :program_age_groups

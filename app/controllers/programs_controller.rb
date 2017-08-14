@@ -1,5 +1,5 @@
 class ProgramsController < AdminController
-  before_action :set_entity, only: [:edit, :update, :destroy]
+  before_action :set_entity, only: [:show, :edit, :update, :destroy]
   skip_before_action :restrict_access, only: [:index]
 
   # get /programs
@@ -11,6 +11,12 @@ class ProgramsController < AdminController
   # get /programs/new
   def new
     @entity = Program.new
+  end
+
+  # get /programs/:id
+  def show
+    @entity.program_clicks.create(tracking_for_entity)
+    redirect_to @entity.url
   end
 
   # post /programs

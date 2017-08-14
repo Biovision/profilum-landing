@@ -6,6 +6,7 @@ class CreatePrograms < ActiveRecord::Migration[5.1]
         t.references :center, foreign_key: true, on_update: :cascade, on_delete: :cascade
         t.integer :price, default: 0, null: false
         t.integer :old_price
+        t.integer :program_clicks_count, default: 0, null: false
         t.boolean :visible, default: true, null: false
         t.boolean :use_discount, default: false, null: false
         t.string :image

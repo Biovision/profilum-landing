@@ -1,0 +1,14 @@
+<div class="image">
+  <%= program_image_preview(entity.program) %>
+</div>
+<div class="data">
+  <div><%= program_link(entity.program) %></div>
+  <div class="info">
+    <%= entity.ip %>
+  </div>
+  <% unless entity.agent.nil? %>
+      <div class="secondary info">
+        <%= entity.agent.name %>
+      </div>
+  <% end %>
+</div>

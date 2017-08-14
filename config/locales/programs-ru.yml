@@ -5,6 +5,12 @@ ru:
     few: "%{count} программы"
     many: "%{count} программ"
     other: "%{count} программ"
+  program_click_count:
+    zero: "переходов нет"
+    one: "%{count} переход"
+    few: "%{count} перехода"
+    many: "%{count} переходов"
+    other: "%{count} переходов"
   school_inflection:
     - "направлений"
     - "направление"
@@ -14,6 +20,7 @@ ru:
       age_group: "Возрастная группа"
       center: "Центр"
       program: "Программа"
+      program_click: "Переход к программе"
       school: "Направление"
     errors:
       models:
@@ -56,6 +63,10 @@ ru:
         program_id: "Программа"
         school: "Направление"
         school_id: "Направление"
+      program_click:
+        program: "Программа"
+        agent: "Агент пользователя"
+        ip: "IP-адрес"
   admin:
     age_groups:
       nav_item:
@@ -84,6 +95,13 @@ ru:
         title: "Программы, страница %{page}"
       show:
         title: "Программа «%{name}»"
+    program_clicks:
+      nav_item:
+        description: "Просмотр статистики по переходам к программам"
+        text: "Клики на программы"
+      index:
+        heading: "Переходы"
+        title: "Клики на программы, страница %{page}"
     schools:
       nav_item:
         description: "Управление направлениями обучения"

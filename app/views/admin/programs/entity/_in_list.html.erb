@@ -16,7 +16,8 @@
     <% end %>
   </div>
   <div class="secondary info">
-    <%= entity.lead %>
+    <%= entity.lead %><br/>
+    <%= t(:program_click_count, count: entity.program_clicks_count) %>
   </div>
 
   <%= render partial: 'admin/programs/toggleable', locals: { entity: entity } %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :age_groups, :centers, :programs, :schools, except: [:index, :show]
+  resources :age_groups, :centers, :schools, except: [:index, :show]
+  resources :programs, except: [:index]
   get 'programs' => 'programs#index', defaults: { format: :json }
 
   post 'profilum/login' => 'profilum#login', as: :profilum_login
@@ -19,8 +20,10 @@ Rails.application.routes.draw do
         delete 'age_groups/:age_group_id' => :remove_age_group, defaults: { format: :json }
         put 'schools/:school_id' => :add_school, as: :school, defaults: { format: :json }
         delete 'schools/:school_id' => :remove_school, defaults: { format: :json }
+        get 'clicks'
       end
     end
+    resources :program_clicks, only: [:index]
     resources :schools, only: [:index, :show] do
       member do
         post 'toggle', defaults: { format: :json }
