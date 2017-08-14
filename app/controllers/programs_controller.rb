@@ -1,6 +1,6 @@
 class ProgramsController < AdminController
   before_action :set_entity, only: [:show, :edit, :update, :destroy]
-  skip_before_action :restrict_access, only: [:index]
+  skip_before_action :restrict_access, only: [:index, :show]
 
   # get /programs
   def index
