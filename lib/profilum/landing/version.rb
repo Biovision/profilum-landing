@@ -1,5 +1,5 @@
 module Profilum
   module Landing
-    VERSION = '0.1.170814'
+    VERSION = '0.1.170815'
   end
 end

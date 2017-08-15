@@ -1,0 +1,14 @@
+<div class="image">
+  <%= program_image_preview(entity) %>
+</div>
+<div class="data">
+  <div><%= admin_program_click_link(entity) %></div>
+  <div class="info">
+    <%= t(:program_click_count, count: entity.program_clicks_count) %>
+  </div>
+  <div class="secondary info">
+    <%= t('click_period.today') %> <%= t(:program_click_count, count: entity.click_count(:day)) %><br/>
+    <%= t('click_period.this_week') %> <%= t(:program_click_count, count: entity.click_count(:week)) %><br/>
+    <%= t('click_period.this_month') %> <%= t(:program_click_count, count: entity.click_count(:month)) %>
+  </div>
+</div>

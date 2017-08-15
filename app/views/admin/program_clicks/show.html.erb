@@ -1,0 +1,32 @@
+<% content_for :meta_title, t('.title', name: @entity.name, page: current_page) %>
+<% content_for :breadcrumbs do %>
+    <%= link_to(t('admin.program_clicks.nav_item.text'), admin_program_clicks_path) %>
+    <span><%= @entity.name %></span>
+<% end %>
+
+<article>
+  <h1><%= t('.heading', name: @entity.name) %></h1>
+
+  <ul class="actions">
+    <li><%= return_icon(admin_program_clicks_path) %></li>
+  </ul>
+
+  <ul>
+    <li>
+      <%= t('click_period.today') %>
+      <%= t(:program_click_count, count: @entity.click_count(:day)) %>
+    </li>
+    <li>
+      <%= t('click_period.this_week') %>
+      <%= t(:program_click_count, count: @entity.click_count(:week)) %>
+    </li>
+    <li>
+      <%= t('click_period.this_month') %>
+      <%= t(:program_click_count, count: @entity.click_count(:month)) %>
+    </li>
+  </ul>
+
+  <%= paginate @collection %>
+  <%= render partial: 'shared/admin/list', locals: { collection: @collection } %>
+  <%= paginate @collection %>
+</article>

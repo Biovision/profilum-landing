@@ -34,6 +34,7 @@ class Program < ApplicationRecord
   scope :price_from, ->(value) { where('price >= ?', value.to_i) unless value.blank? }
   scope :price_to, ->(value) { where('price <= ?', value.to_i) unless value.blank? }
   scope :filtered, ->(f) { with_school_ids(f[:school]).with_age_group_ids(f[:age_group]).price_from(f[:price_from]).price_to(f[:price_to]) }
+  scope :with_clicks, -> { where('program_clicks_count > 0') }
 
   # @param [Integer] page
   def self.page_for_administration(page)
@@ -70,6 +71,18 @@ class Program < ApplicationRecord
 
   def ages
     age_groups.ordered_by_priority.map(&:name).join(' ')
+  end
+
+  # @param [Symbol] period
+  def click_count(period)
+    case period.to_sym
+      when :week
+        program_clicks.this_week.count
+      when :month
+        program_clicks.this_month.count
+      else
+        program_clicks.today.count
+    end
   end
 
   private

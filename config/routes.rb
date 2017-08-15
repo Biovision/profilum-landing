@@ -20,10 +20,9 @@ Rails.application.routes.draw do
         delete 'age_groups/:age_group_id' => :remove_age_group, defaults: { format: :json }
         put 'schools/:school_id' => :add_school, as: :school, defaults: { format: :json }
         delete 'schools/:school_id' => :remove_school, defaults: { format: :json }
-        get 'clicks'
       end
     end
-    resources :program_clicks, only: [:index]
+    resources :program_clicks, only: [:index, :show]
     resources :schools, only: [:index, :show] do
       member do
         post 'toggle', defaults: { format: :json }

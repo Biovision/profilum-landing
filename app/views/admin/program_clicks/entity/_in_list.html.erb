@@ -1,12 +1,6 @@
-<div class="image">
-  <%= program_image_preview(entity.program) %>
-</div>
 <div class="data">
-  <div><%= entity.program.name %></div>
-  <div class="info">
-    <%= time_tag(entity.created_at) %><br/>
-    <%= entity.ip %>
-  </div>
+  <div><%= time_tag(entity.created_at) %></div>
+  <div class="info"><%= entity.ip %></div>
   <% unless entity.agent.nil? %>
       <div class="secondary info">
         <%= entity.agent.name %>

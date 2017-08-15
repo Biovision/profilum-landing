@@ -1,0 +1,11 @@
+<% if collection.any? %>
+    <ul class="list-of-entities">
+      <% collection.each do |entity| %>
+          <li data-id="<%= entity.id %>">
+            <%= render partial: "admin/program_clicks/entity/program", locals: { entity: entity } %>
+          </li>
+      <% end %>
+    </ul>
+<% else %>
+    <div class="message-box-warning"><%= t('.no_programs') %></div>
+<% end %>

@@ -14,6 +14,11 @@ module ProgramsHelper
     link_to(entity.name, admin_program_path(entity.id))
   end
 
+  # @param [Program] entity
+  def admin_program_click_link(entity)
+    link_to(entity.name, admin_program_click_path(entity.id))
+  end
+
   # @param [School] entity
   def admin_school_link(entity)
     link_to(entity.name, admin_school_path(entity.id))
