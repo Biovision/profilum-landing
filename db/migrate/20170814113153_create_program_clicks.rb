@@ -7,6 +7,8 @@ class CreateProgramClicks < ActiveRecord::Migration[5.1]
         t.references :agent, foreign_key: true, on_update: :cascade, on_delete: :nullify
         t.inet :ip
       end
+
+      Privilege.create(slug: 'click_viewer', name: 'Аналитик кликов')
     end
   end
 

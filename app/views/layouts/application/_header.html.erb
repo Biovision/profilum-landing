@@ -1,6 +1,9 @@
 <header>
   <div>
-    <div class="logo"><%= link_to(image_tag('profilum/landing/logo.svg', alt: 'Профилум'), 'https://profilum.ru') %></div>
+    <div class="logo">
+      <%= link_to(image_tag('profilum/landing/logo.svg', alt: 'Профилум'), 'https://profilum.ru') %><br/>
+      <span>Ваши таланты — наша профессия</span>
+    </div>
 
     <nav>
       <%= render 'layouts/application/search_profilum' %>

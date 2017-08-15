@@ -7,6 +7,6 @@ class Admin::ProgramClicksController < AdminController
   private
 
   def restrict_access
-    require_privilege :program_manager
+    require_privilege :click_viewer
   end
 end
