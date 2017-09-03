@@ -1,11 +1,13 @@
 class Program < ApplicationRecord
   include Toggleable
 
-  PER_PAGE    = 20
-  NAME_LIMIT  = 255
-  LEAD_LIMIT  = 255
-  URL_LIMIT   = 255
-  PRICE_RANGE = (0..16777215)
+  PER_PAGE     = 20
+  NAME_LIMIT   = 255
+  SLUG_LIMIT   = 255
+  LEAD_LIMIT   = 255
+  URL_LIMIT    = 255
+  PRICE_RANGE  = (0..16777215)
+  SLUG_PATTERN = /\A[a-z0-9]+[-a-z0-9_]{,248}[a-z0-9]+\z/
 
   toggleable :visible, :use_discount
 
@@ -20,6 +22,8 @@ class Program < ApplicationRecord
 
   validates_presence_of :name, :url
   validates_length_of :name, maximum: NAME_LIMIT
+  validates_length_of :slug, maximum: SLUG_LIMIT
+  validates_format_of :slug, with: SLUG_PATTERN, allow_blank: true
   validates_length_of :lead, maximum: LEAD_LIMIT
   validates_length_of :url, maximum: URL_LIMIT
   validates_inclusion_of :price, in: PRICE_RANGE
@@ -31,9 +35,10 @@ class Program < ApplicationRecord
   scope :visible, -> { where(visible: true) }
   scope :with_school_ids, ->(ids) { joins(:program_schools).where(program_schools: { school_id: ids }) unless ids.blank? }
   scope :with_age_group_ids, ->(ids) { joins(:program_age_groups).where(program_age_groups: { age_group_id: ids }) unless ids.blank? }
+  scope :near_stations, ->(ids) { where(center_id: Center.near_stations(ids).pluck(:id)) unless ids.blank? }
   scope :price_from, ->(value) { where('price >= ?', value.to_i) unless value.blank? }
   scope :price_to, ->(value) { where('price <= ?', value.to_i) unless value.blank? }
-  scope :filtered, ->(f) { with_school_ids(f[:school]).with_age_group_ids(f[:age_group]).price_from(f[:price_from]).price_to(f[:price_to]) }
+  scope :filtered, ->(f) { with_school_ids(f[:school]).with_age_group_ids(f[:age_group]).price_from(f[:price_from]).price_to(f[:price_to]).near_stations(f[:subway_station]) }
   scope :with_clicks, -> { where('program_clicks_count > 0') }
 
   # @param [Integer] page
