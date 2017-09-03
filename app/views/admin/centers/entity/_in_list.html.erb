@@ -1,6 +1,13 @@
+<div class="image">
+  <%= center_image_preview(entity) %>
+</div>
 <div class="data">
   <div><%= admin_center_link(entity) %></div>
   <div class="info">
+    <%= entity.slug %>
+  </div>
+  <div class="info">
+    <%= entity.subway %><br/>
     <%= entity.place %>
   </div>
   <div class="secondary info">

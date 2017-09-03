@@ -13,6 +13,13 @@
   </ul>
 
   <dl>
+    <% unless @entity.image.blank? %>
+        <dt><%= t('activerecord.attributes.center.image') %></dt>
+        <dd>
+          <figure><%= center_image_preview(@entity) %></figure>
+        </dd>
+    <% end %>
+
     <dt><%= t('activerecord.attributes.center.url') %></dt>
     <dd>
       <%= link_to(@entity.url, @entity.url, target: '_blank') %>
@@ -21,6 +28,11 @@
     <dt><%= t('activerecord.attributes.center.place') %></dt>
     <dd>
       <%= @entity.place %>
+    </dd>
+
+    <dt><%= t('activerecord.attributes.center.slug') %></dt>
+    <dd>
+      <%= @entity.slug %>
     </dd>
   </dl>
 

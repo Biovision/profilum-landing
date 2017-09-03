@@ -34,6 +34,13 @@ module ProgramsHelper
     Center.ordered_by_name.map { |c| [c.name, c.id] }
   end
 
+  # @param [Center] entity
+  def center_image_preview(entity)
+    return '' if entity.image.blank?
+    versions = "#{entity.image.preview_2x.url} 2x"
+    image_tag(entity.image.preview.url, alt: entity.name, srcset: versions)
+  end
+
   # @param [Program] entity
   def program_image_preview(entity)
     return '' if entity.image.blank?

@@ -11,6 +11,7 @@ class CreatePrograms < ActiveRecord::Migration[5.1]
         t.boolean :use_discount, default: false, null: false
         t.string :image
         t.string :name, null: false
+        t.string :slug
         t.string :url
         t.string :lead
         t.string :ages
