@@ -22,7 +22,7 @@ class Center < ApplicationRecord
   validates_format_of :slug, with: SLUG_PATTERN, allow_blank: true
   validates_length_of :url, maximum: URL_LIMIT
 
-  scope :with_programs, -> { where('programs_count > 0') }
+  scope :with_programs, -> { joins(:programs).where(programs: { visible: true }) }
   scope :near_stations, ->(ids) { joins(:center_subway_stations).where(center_subway_stations: { subway_station_id: ids }) unless ids.blank? }
 
   # @param [Integer] page

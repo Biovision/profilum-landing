@@ -20,7 +20,7 @@ class School < ApplicationRecord
   before_validation { self.slug = Canonizer.transliterate(name.to_s) if slug.blank? }
 
   scope :visible, -> { where(visible: true) }
-  scope :with_programs, -> { where('programs_count > 0') }
+  scope :with_programs, -> { joins(:program_schools).where(program_schools: { program_id: Program.visible.pluck(:id) }) }
 
   # @param [Integer] page
   def self.page_for_administration(page = 1)
@@ -28,7 +28,7 @@ class School < ApplicationRecord
   end
 
   def self.list_for_visitors
-    visible.with_programs.ordered_by_name
+    visible.with_programs.ordered_by_name.uniq
   end
 
   def self.entity_parameters
