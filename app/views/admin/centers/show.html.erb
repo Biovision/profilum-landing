@@ -34,6 +34,16 @@
     <dd>
       <%= @entity.slug %>
     </dd>
+
+    <% unless @entity.latitude.nil? %>
+        <dt><%= t('activerecord.attributes.center.latitude') %></dt>
+        <dd><%= @entity.latitude %></dd>
+    <% end %>
+
+    <% unless @entity.longitude.nil? %>
+        <dt><%= t('activerecord.attributes.center.longitude') %></dt>
+        <dd><%= @entity.longitude %></dd>
+    <% end %>
   </dl>
 
   <section>

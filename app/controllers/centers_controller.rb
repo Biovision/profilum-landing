@@ -1,5 +1,12 @@
-class CentersController < AdminController
+class CentersController < ApplicationController
+  before_action :restrict_access, except: [:index]
   before_action :set_entity, only: [:edit, :update, :destroy]
+  layout 'admin', except: [:index]
+
+  # get /centers
+  def index
+    @collection = Center.list_for_visitors
+  end
 
   # get /centers/new
   def new

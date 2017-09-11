@@ -159,6 +159,8 @@ ru:
       placeholders:
         latitude: "55.754199"
         longitude: "37.620225"
+    index:
+      title: "Центры образования"
   programs:
     new:
       heading: "Новая программа обучения"

@@ -67,7 +67,7 @@ namespace :centers do
         chunks = line.strip.split('/')
         slug   = chunks.first
 
-        latitude, longitude = chunks.last(2)
+        longitude, latitude = chunks.last(2)
         if latitude =~ pattern && longitude =~ pattern
           print "\r#{slug} "
           center = Center.find_by(slug: slug)

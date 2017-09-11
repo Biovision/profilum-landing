@@ -11,7 +11,7 @@
     <%= entity.center.name %>, <%= entity.price %> ₽
     <% if entity.old_price.to_i > 0 %>
         <span class="old-price"><%= entity.old_price %> ₽</span>
-        (&minus;<%= entity.discount(true) %> ₽)
+        (&minus;<%= entity.discount(true) %> ₽, <%= entity.discount_percent %>%)
     <% end %>
     <% if entity.program_age_groups.any? %>
         <div>

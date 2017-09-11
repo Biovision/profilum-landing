@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :age_groups, :centers, :schools, except: [:index, :show]
+  resources :age_groups, :schools, except: [:index, :show]
+  resources :centers, except: [:show]
   resources :programs, except: [:index]
   get 'programs' => 'programs#index', defaults: { format: :json }
 

@@ -35,8 +35,12 @@ class Center < ApplicationRecord
     ordered_by_name.page(page).per(PER_PAGE)
   end
 
+  def self.list_for_visitors
+    with_programs.ordered_by_name.uniq
+  end
+
   def self.entity_parameters
-    %i(name slug url place image)
+    %i(name slug url place image latitude longitude)
   end
 
   def subway
