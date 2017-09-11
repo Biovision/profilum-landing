@@ -1,5 +1,9 @@
 <div class="image">
-  <%= program_image_preview(entity) %>
+  <% if entity.image.blank? %>
+      <%= center_image_preview(entity.center) %>
+  <% else %>
+      <%= program_image_preview(entity) %>
+  <% end %>
 </div>
 <div class="data">
   <div><%= admin_program_link(entity) %></div>

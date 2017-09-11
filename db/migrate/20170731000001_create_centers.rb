@@ -9,6 +9,8 @@ class CreateCenters < ActiveRecord::Migration[5.1]
         t.string :url
         t.string :place
         t.integer :programs_count, limit: 2, default: 0, null: false
+        t.float :latitude
+        t.float :longitude
       end
 
       Privilege.create(slug: 'program_manager', name: 'Управляющий программами')

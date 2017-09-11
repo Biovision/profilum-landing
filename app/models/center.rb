@@ -9,6 +9,9 @@ class Center < ApplicationRecord
   URL_LIMIT    = 255
   SLUG_PATTERN = /\A[a-z0-9]+[-a-z0-9_]{,248}[a-z0-9]+\z/
 
+  LATITUDE_RANGE  = (-90..90)
+  LONGITUDE_RANGE = (-180..180)
+
   mount_uploader :image, CenterImageUploader
 
   has_many :programs, dependent: :destroy
@@ -21,6 +24,8 @@ class Center < ApplicationRecord
   validates_length_of :slug, maximum: SLUG_LIMIT
   validates_format_of :slug, with: SLUG_PATTERN, allow_blank: true
   validates_length_of :url, maximum: URL_LIMIT
+  validates_inclusion_of :latitude, in: LATITUDE_RANGE, allow_nil: true
+  validates_inclusion_of :longitude, in: LONGITUDE_RANGE, allow_nil: true
 
   scope :with_programs, -> { joins(:programs).where(programs: { visible: true }) }
   scope :near_stations, ->(ids) { joins(:center_subway_stations).where(center_subway_stations: { subway_station_id: ids }) unless ids.blank? }
@@ -36,5 +41,10 @@ class Center < ApplicationRecord
 
   def subway
     subway_stations.ordered_by_name.map(&:name).join(', ')
+  end
+
+  def coordinates
+    return '' if latitude.nil? || longitude.nil?
+    "#{latitude};#{longitude}"
   end
 end

@@ -42,6 +42,16 @@
         <%= f.text_field :place, size: nil, maxlength: Center::PLACE_LIMIT, required: true %>
         <div class="guideline"><%= t('.guidelines.place') %></div>
       </dd>
+
+      <dt><%= f.label :latitude %></dt>
+      <dd>
+        <%= f.text_field :latitude, size: 20, maxlength: 50, placeholder: t('.placeholders.latitude') %>
+      </dd>
+
+      <dt><%= f.label :longitude %></dt>
+      <dd>
+        <%= f.text_field :longitude, size: 20, maxlength: 50, placeholder: t('.placeholders.longitude') %>
+      </dd>
     </dl>
 
     <div class="buttons">
